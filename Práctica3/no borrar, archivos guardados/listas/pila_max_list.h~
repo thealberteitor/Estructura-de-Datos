@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+
+template <class T>
+class Lista{
+
+	private:
+
+		struct Elemento{
+			
+			int valor;
+			int maximo;
+			Elemento *siguiente;
+
+			Elemento():siguiente(0),valor(0){}
+			Elemento(const int &numero, Elemento *sig): valor(numero), siguiente(sig){}	
+
+		};
+
+		int tamanio;
+		Elemento *first;
+
+	public:
+
+		Lista():first(0), tamanio(0){}
+
+		Lista(const Lista<T> &original);
+
+		~Lista();
+
+		Lista &operator=(const Lista<T> &otra);
+
+		bool Vacia() const{
+			return (tamanio==0);
+		}
+
+		T &Frente(){
+			assert(first!=0);
+			return first->valor;
+		}
+	
+		const T &Frente () const{
+			assert(first!=0);
+			return first->valor;
+		}
+
+		void Poner(const T &elem);
+
+		void Quitar();
+
+		void Mostrar();	
+		
+		int GetTamanio() const{
+			return tamanio;
+		}
+
+};
