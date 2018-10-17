@@ -8,7 +8,7 @@ int buscar(const int *v, int n, int x)
 {
   int i=0;
   while (i<n && v[i]!=x) 
-    i=i+1;
+    i+=1;
   if (i<n) 
     return i;
   else
